@@ -1,0 +1,618 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			/* Table */
+			table {
+				font-family: Helvetica, Arial, sans-serif;
+				border-spacing: 0;
+				color: white;
+			}
+			td {
+				border: solid black;
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				font-size: 12px;
+				border-width: 1px 0px 0px 1px;
+			}
+			td:last-child {
+				border-right-width: 1px;
+			}
+			tbody tr:last-child td {
+				border-bottom-width: 1px;
+			}
+			th {
+				border: 4px solid white;
+				border-top-left-radius: 10px;
+				overflow: hidden;
+			}
+			th span {
+				display: inline-block;
+			}
+			thead th {
+				border-top-right-radius: 10px;
+				vertical-align: top;
+				text-align: center;
+				border-bottom-width: 0px;
+			}
+			th:first-child {
+				border-bottom-left-radius: 10px;
+				width: var(--tabsize);
+				text-align: left;
+				border-right-width: 0px;
+			}
+			thead th:first-child {
+				border: none;
+				border-radius: 0;
+			}
+			tbody th > * {
+				vertical-align: middle;
+			}
+			th span {
+				margin-left: 4px;
+				margin-right: 4px;
+			}
+			img {
+				width: 24px;
+				height: 24px;
+			}
+			thead img {
+				margin-top: 2px;
+				margin-bottom: 2px;
+			}
+			tbody img {
+				margin-left: 2px;
+			}
+			#atk {
+				margin: 6px 0px 0px 2px;
+			}
+			#def {
+				float: right;
+			}
+			/* Modifiers */
+			.weak {
+				background: #09F;
+			}
+			.nohit {
+				background: #99A;
+			}
+			.strong {
+				background: #C50;
+			}
+			.weak::after {
+				content: "Weak";
+			}
+			.nohit::after {
+				content: "Can't Hit";
+			}
+			.strong::after {
+				content: "Strong";
+			}
+			/* Types */
+			.normal {
+				background: rgb(143, 154, 161);
+			}
+			.fire {
+				background: rgb(253, 157, 83);
+			}
+			.water {
+				background: rgb(78, 144, 211);
+			}
+			.grass {
+				background: rgb(98, 187, 89);
+			}
+			.bug {
+				background: rgb(142, 192, 44);
+			}
+			.electric {
+				background: rgb(242, 210, 58);
+			}
+			.rock {
+				background: rgb(197, 183, 138);
+			}
+			.ground {
+				background: rgb(215, 120, 66);
+			}
+			.flying {
+				background: rgb(141, 169, 219);
+			}
+			.psychic {
+				background: rgb(248, 113, 119);
+			}
+			.fighting {
+				background: rgb(205, 65, 104);
+			}
+			.poison {
+				background: rgb(169, 106, 198);
+			}
+			.ghost {
+				background: rgb(81, 105, 170);
+			}
+			.dark {
+				background: rgb(88, 84, 99);
+			}
+			.ice {
+				background: rgb(113, 206, 187);
+			}
+			.steel {
+				background: rgb(88, 142, 159);
+			}
+			.dragon {
+				background: rgb(9, 108, 192);
+			}
+			.fairy {
+				background: rgb(235, 143, 230);
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>
+						<img id="atk" src="atk.png" title="Attacking type">
+						<img id="def" src="def.png" title="Defending type">
+					</th>
+					
+					<th class='normal'><img src="type/normal.png"></th>
+					<th class='fire'><img src="type/fire.png"></th>
+					<th class='water'><img src="type/water.png"></th>
+					<th class='grass'><img src="type/grass.png"></th>
+					<th class='bug'><img src="type/bug.png"></th>
+					<th class='electric'><img src="type/electric.png"></th>
+					
+					<th class='rock'><img src="type/rock.png"></th>
+					<th class='ground'><img src="type/ground.png"></th>
+					<th class='flying'><img src="type/flying.png"></th>
+					<th class='psychic'><img src="type/psychic.png"></th>
+					<th class='fighting'><img src="type/fighting.png"></th>
+					<th class='poison'><img src="type/poison.png"></th>
+					
+					<th class='ghost'><img src="type/ghost.png"></th>
+					<th class='dark'><img src="type/dark.png"></th>
+					<th class='ice'><img src="type/ice.png"></th>
+					<th class='steel'><img src="type/steel.png"></th>
+					<th class='dragon'><img src="type/dragon.png"></th>
+					<th class='fairy'><img src="type/fairy.png"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class='normal'><img src="type/normal.png"><span>Normal</span></th>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td class='nohit'></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='fire'><img src="type/fire.png"><span>Fire</span></th>
+
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td></td>
+
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='water'><img src="type/water.png"><span>Water</span></th>
+
+					<td></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='grass'><img src="type/grass.png"><span>Grass</span></th>
+
+					<td></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td></td>
+
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='bug'><img src="type/bug.png"><span>Bug</span></th>
+
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+					<td class='weak'></td>
+				</tr>
+				<tr>
+					<th class='electric'><img src="type/electric.png"><span>Electric</span></th>
+
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td class='weak'></td>
+
+					<td></td>
+					<td class='nohit'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+				</tr>
+				
+				<tr>
+					<th class='rock'><img src="type/rock.png"><span>Rock</span></th>
+
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+
+					<td></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='ground'><img src="type/ground.png"><span>Ground</span></th>
+
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+
+					<td class='strong'></td>
+					<td></td>
+					<td class='nohit'></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='flying'><img src="type/flying.png"><span>Flying</span></th>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='psychic'><img src="type/psychic.png"><span>Psychic</span></th>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+
+					<td></td>
+					<td class='nohit'></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='fighting'><img src="type/fighting.png"><span>Fighting</span></th>
+
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+
+					<td class='strong'></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td class='weak'></td>
+
+					<td class='nohit'></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td class='weak'></td>
+				</tr>
+				<tr>
+					<th class='poison'><img src="type/poison.png"><span>Poison</span></th>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td class='nohit'></td>
+					<td></td>
+					<td class='strong'></td>
+				</tr>
+				
+				<tr>
+					<th class='ghost'><img src="type/ghost.png"><span>Ghost</span></th>
+
+					<td class='nohit'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='dark'><img src="type/dark.png"><span>Dark</span></th>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+				</tr>
+				<tr>
+					<th class='ice'><img src="type/ice.png"><span>Ice</span></th>
+
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					
+					<td></td>
+					<td class='strong'></td>
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th class='steel'><img src="type/steel.png"><span>Steel</span></th>
+
+					<td></td>
+					<td class='weak'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+
+					<td class='strong'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+					<td></td>
+					<td class='strong'></td>
+				</tr>
+				<tr>
+					<th class='dragon'><img src="type/dragon.png"><span>Dragon</span></th>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td class='nohit'></td>
+				</tr>
+				<tr>
+					<th class='fairy'><img src="type/fairy.png"><span>Fairy</span></th>
+
+					<td></td>
+					<td class='weak'></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class='strong'></td>
+					<td class='weak'></td>
+
+					<td></td>
+					<td class='strong'></td>
+					<td></td>
+					<td class='weak'></td>
+					<td class='strong'></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

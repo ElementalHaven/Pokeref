@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pokemon Quest - Recipe Cheat Sheet</title>
+		<style>
+			body {
+				font-family: Arial;
+			}
+			td {
+				padding: 2px 8px;
+			}
+			table {
+				border-collapse: collapse;
+			}
+			body > div {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			#ingredients {
+				text-align: center;
+				border-right: 1px solid #CCC;
+				margin-right: 32px;
+			}
+			#ingredients span {
+				font-weight: bold;
+			}
+			#ingredients img {
+				transform: scale(60%);
+				margin: -12%;
+			}
+			#recipes td:nth-child(2) {
+				text-align: center;
+				font-weight: bold;
+			}
+			#recipes img {
+				margin: 2px 4px;
+				width: 24px;
+				height: 24px;
+				vertical-align: middle;
+			}
+			#ingredients tr:not(:first-child) td, #recipes tbody td {
+				border-top: 1px solid #CCC;
+			}
+			#ingredients tr:not(:last-child) td, #recipes tr:not(:last-child) td, #recipes th {
+				border-bottom: 1px solid #CCC;
+			}
+			.type, .color {
+				display: inline-block;
+				width: 100px;
+				height: 24px;
+				line-height: 24px;
+			}
+			.type {
+				color: white;
+				border-radius: 12px;
+				border-style: solid;
+				border-width: 2px;
+			}
+			.red {
+				color: rgb(184, 51, 46);
+				border-color: rgb(184, 51, 46);
+			}
+			.blue {
+				color: rgb(70, 106, 170);
+				border-color: rgb(70, 106, 170);
+			}
+			.yellow {
+				color: rgb(231, 213, 91);
+				border-color: rgb(231, 213, 91);
+			}
+			.gray {
+				color: gray;
+				border-color: gray;
+			}
+			.normal {
+				background-color: rgb(187, 187, 187);
+				border-color: rgb(187, 187, 187);
+			}
+			.grass {
+				background-color: rgb(159, 203, 58);
+				border-color: rgb(159, 203, 58);
+			}
+			.water {
+				background-color: rgb(111, 179, 206);
+				border-color: rgb(111, 179, 206);
+			}
+			.fire {
+				background-color: rgb(208, 113, 95);
+				border-color: rgb(208, 113, 95);
+			}
+			.electric {
+				background-color: rgb(214, 199, 68);
+				border-color: rgb(214, 199, 68);
+			}
+			.ground {
+				background-color: rgb(191, 173, 95);
+				border-color: rgb(191, 173, 95);
+			}
+			.flying {
+				background-color: rgb(120, 167, 211);
+				border-color: rgb(120, 167, 211);
+			}
+			.rock {
+				background-color: rgb(173, 145, 109);
+				border-color: rgb(173, 145, 109);
+			}
+			.fighting {
+				background-color: rgb(212, 159, 93);
+				border-color: rgb(212, 159, 93);
+			}
+			.bug {
+				background-color: rgb(131, 200, 106);
+				border-color: rgb(131, 200, 106);
+			}
+			.psychic {
+				background-color: rgb(212, 135, 177);
+				border-color: rgb(212, 135, 177);
+			}
+			.steel {
+				background-color: rgb(153, 153, 153);
+				border-color: rgb(153, 153, 153);
+			}
+			.poison {
+				background-color: rgb(180, 126, 187);
+				border-color: rgb(180, 126, 187);
+			}
+			/* Chrome doesn't seem to understand if I specify only for (orientation: portrait). 
+				All other browsers worked fine */
+			@media print {
+				body {
+					margin: 0px;
+				}
+				#ingredients {
+					margin-right: 16px;
+				}
+				#recipes tbody tr:first-child td {
+					border-top: none !important;
+				}
+				#recipes img {
+					margin: 0px 3px 1px 2px;
+				}
+				td {
+					padding: 1px 3px;
+				}
+				#recipes td {
+					padding-bottom: 0px;
+				}
+				.type, .color {
+					width: 80px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		<table id="ingredients">
+			<tr><td><span>Tiny Mushroom</span><br /><img src="tinyshroom.png" /><br />Soft, Mushroom</td></tr>
+			<tr><td><span>Bluk Berry</span><br /><img src="blukberry.png" /><br />Soft, Sweet</td></tr>
+			<tr><td><span>Apricorn</span><br /><img src="apricorn.png" /><br />Hard, Plant</td></tr>
+			<tr><td><span>Fossil</span><br /><img src="fossil.png" /><br />Hard, Mineral</td></tr>
+
+			<tr><td><span>Big Root</span><br /><img src="bigroot.png" /><br />Soft, Plant</td></tr>
+			<tr><td><span>Icy Rock</span><br /><img src="icyrock.png" /><br />Hard, Mineral</td></tr>
+			<tr><td><span>Honey</span><br /><img src="honey.png" /><br />Soft, Sweet</td></tr>
+			<tr><td><span>Balm Mushroom</span><br /><img src="balmshroom.png" /><br />Soft, Mushroom</td></tr>
+
+			<tr><td><span>Mystical Shell</span><br /><img src="mshell.png" /><br />Mystical</td></tr>
+		</table>
+		</div><div>
+		<table id="recipes">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Pokémon</th>
+					<th>Ingredients</th>
+					<th>Guaranteed Recipe</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Mulligan Stew</td>
+					<td>Random</td>
+					<td>Anything</td>
+					<td>
+						1x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						2x<img src="blukberry.png" />Bluk Berry<br />
+						2x<img src="apricorn.png" />Apricorn
+					</td>
+				</tr>
+				<tr>
+					<td>Red Stew</td>
+					<td><div class="color red">Red</div></td>
+					<td>4x Red</td>
+					<td>5x<img src="tinyshroom.png" />Tiny Mushroom</td>
+				</tr>
+				<tr>
+					<td>Blue Soda</td>
+					<td><div class="color blue">Blue</div></td>
+					<td>4x Blue</td>
+					<td>5x<img src="blukberry.png" />Bluk Berry</td>
+				</tr>
+				<tr>
+					<td>Yellow Curry</td>
+					<td><div class="color yellow">Yellow</div></td>
+					<td>4x Yellow</td>
+					<td>5x<img src="apricorn.png" />Apricorn</td>
+				</tr>
+				<tr>
+					<td>Gray Porridge</td>
+					<td><div class="color gray">Gray</div></td>
+					<td>4x Gray</td>
+					<td>5x<img src="fossil.png" />Fossil</td>
+				</tr>
+				<tr>
+					<td>Mouth-Watering Dip</td>
+					<td><div class="type water">Water</div></td>
+					<td>
+						4x Soft<br />
+						3x Blue
+					</td>
+					<td>
+						2x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						3x<img src="blukberry.png" />Bluk Berry
+					</td>
+				</tr>
+				<tr>
+					<td>Plain Crepe</td>
+					<td><div class="type normal">Normal</div></td>
+					<td>
+						3x Sweet<br />
+						2x Gray
+					</td>
+					<td>
+						3x<img src="blukberry.png" />Bluk Berry<br />
+						2x<img src="fossil.png" />Fossil
+					</td>
+				</tr>
+				<tr>
+					<td>Sludge Soup</td>
+					<td><div class="type poison">Poison</div></td>
+					<td>
+						4x Mushroom<br />
+						3x Soft
+					</td>
+					<td>
+						3x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						2x<img src="balmshroom.png" />Balm Mushroom
+					</td>
+				</tr>
+				<tr>
+					<td>Mud Pie</td>
+					<td><div class="type ground">Ground</div></td>
+					<td>
+						2x Mineral<br />
+						3x Soft
+					</td>
+					<td>
+						3x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						2x<img src="fossil.png" />Fossil
+					</td>
+				</tr>
+				<tr>
+					<td>Veggie Smoothie</td>
+					<td><div class="type grass">Grass</div></td>
+					<td>
+						4x Plant<br />
+						2x Soft
+					</td>
+					<td>
+						3x<img src="bigroot.png" />Big Root<br />
+						1x<img src="apricorn.png" />Apricorn<br />
+						1x<img src="balmshroom.png" />Balm Mushroom
+					</td>
+				</tr>
+				<tr>
+					<td>Honey Nectar</td>
+					<td><div class="type bug">Bug</div></td>
+					<td>
+						4x Sweet<br />
+						3x Yellow
+					</td>
+					<td>
+						2x<img src="blukberry.png" />Bluk Berry<br />
+						3x<img src="honey.png" />Honey
+					</td>
+				</tr>
+				<tr>
+					<td>Brain Food</td>
+					<td><div class="type psychic">Psychic</div></td>
+					<td>
+						3x Sweet<br />
+						2x Hard
+					</td>
+					<td>
+						3x<img src="blukberry.png" />Bluk Berry<br />
+						2x<img src="apricorn.png" />Apricorn
+					</td>
+				</tr>
+				<tr>
+					<td>Stone Soup</td>
+					<td><div class="type rock">Rock</div></td>
+					<td>
+						4x Hard<br />
+						2x Mineral
+					</td>
+					<td>
+						2x<img src="apricorn.png" />Apricorn<br />
+						3x<img src="fossil.png" />Fossil
+					</td>
+				</tr>
+				<tr>
+					<td>Light-as-Air Casserole</td>
+					<td><div class="type flying">Flying</div></td>
+					<td>
+						3x Mineral<br />
+						2x Plant
+					</td>
+					<td>
+						2x<img src="bigroot.png" />Big Root<br />
+						1x<img src="icyrock.png" />Icy Rock<br />
+						2x<img src="fossil.png" />Fossil
+					</td>
+				</tr>
+				<tr>
+					<td>Hot Pot</td>
+					<td><div class="type fire">Fire</div></td>
+					<td>
+						3x Mushroom<br />
+						1x Red
+					</td>
+					<td>
+						3x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						2x<img src="blukberry.png" />Bluk Berry
+					</td>
+				</tr>
+				<tr>
+					<td>Watt a Risotto</td>
+					<td><div class="type electric">Electric</div></td>
+					<td>
+						4x Soft<br />
+						3x Yellow
+					</td>
+					<td>
+						2x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						1x<img src="apricorn.png" />Apricorn<br />
+						2x<img src="honey.png" />Honey
+					</td>
+				</tr>
+				<tr>
+					<td>Get Swole Syrup</td>
+					<td><div class="type fighting">Fighting</div></td>
+					<td>
+						3x Sweet<br />
+						2x Mushroom
+					</td>
+					<td>
+						2x<img src="tinyshroom.png" />Tiny Mushroom<br />
+						2x<img src="blukberry.png" />Bluk Berry<br />
+						1x<img src="honey.png" />Honey
+					</td>
+				</tr>
+				<tr>
+					<td>Ambrosia of Legends</td>
+					<td>Rare</td>
+					<td>4x Mystical</td>
+					<td>5x<img src="mshell.png" />Mystical Shell</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</body>
+</html>
